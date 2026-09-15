@@ -1,21 +1,50 @@
-body {
-    background-color:#ffffff;
-    font-family:"Times New Roman", "sans-serif";
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-
-    }
-
-@keyframes rainbow {
-    0% { color: #ff0000; }
-    17% { color: #ff8800; }
-    33% { color: #ffff00; }
-    50% { color: #00ff00; }
-    67% { color: #0088ff; }
-    83% { color: #8800ff; }
-    100% { color: #ff0000; }
+/* ===== Imperial / Metric Converter ===== */
+#metric-converter {
+    background-color: #accfb5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
 }
-p {
-    animation: rainbow 5s ease-in-out infinite;
+
+#metric-converter form {
+    margin-bottom: 15px;
+}
+
+#metric-converter label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#metric-converter input,
+#metric-converter select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#convert-btn {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#convert-btn:hover {
+    background-color: #0050a5;
+}
+
+#output {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #222222;
+    font-family: 'Arial', sans-serif;
 }

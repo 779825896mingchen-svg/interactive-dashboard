@@ -55,6 +55,7 @@
             font-family: 'Arial', sans-serif;
 
         }
+        
     </style>
 </head>
 <body>
@@ -96,7 +97,34 @@
         </div>
     </div>
     
-    <!-- Bootstrap JS (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div class="col" id="metric-converter">
+        <h2>Imperial / Metric Converter</h2>
+        <form id="converter-form">
+          <label for="input-value">Value:</label>
+          <input type="number" id="input-value" step="any" required>
+      
+          <label for="conversion-type">Conversion:</label>
+          <select id="conversion-type">
+            <option value="in-cm">Inches → Centimeters</option>
+            <option value="ft-m">Feet → Meters</option>
+            <option value="yd-m">Yards → Meters</option>
+            <option value="mi-km">Miles → Kilometers</option>
+            <option value="cm-in">Centimeters → Inches</option>
+            <option value="m-ft">Meters → Feet</option>
+            <option value="km-mi">Kilometers → Miles</option>
+          </select>
+      
+          <button type="submit" id="convert-btn">Convert</button>
+        </form>
+      
+        <p id="output"></p>
+      
+        <script src="js/metric-converter.js" defer></script>
+        <link rel="stylesheet" href="css/style.css">
+      </div>
+
+
+
 </body>
 </html>
