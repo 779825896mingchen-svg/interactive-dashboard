@@ -48,4 +48,15 @@ DISPLAY result as "X [from_unit] is Y [to_unit]"
 END IF
 END
 
+## Magic Eight Ball
+
+An interactive "fortune teller" game. Type a yes/no question, click the Magic Eight Ball, and receive a random answer. Click **"Ask another question"** to reset and try again.
+
+**Technical features:**
+- JavaScript array of responses with `Math.random()` index selection
+- `addEventListener` for `mousedown` (on the ball) and `click` (on reset)
+- Input validation with an `alert` if the field is empty
+- CSS animation shakes the ball when an answer is revealed
+
+
 🔗 **View the live dashboard here:** [https://779825896mingchen-svg.github.io/interactive-dashboard/](https://779825896mingchen-svg.github.io/interactive-dashboard/)
