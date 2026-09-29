@@ -13,23 +13,23 @@
             border-radius: 8px;
             margin-top: 20px;
         }
-        
+
         #weekly-tasks form {
             margin-bottom: 15px;
         }
-        
+
         #weekly-tasks label {
             font-weight: bold;
             margin-top: 10px;
         }
-        
+
         #weekly-tasks input {
             width: 100%;
             padding: 8px;
             border: 1px solid #ced4da;
             border-radius: 4px;
         }
-        
+
         #goal-btn {
             margin-top: 15px;
             background-color: #007bff;
@@ -39,11 +39,11 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        
+
         #goal-btn:hover {
             background-color: #0050a5;
         }
-        
+
         #goal-message {
             margin-top: 15px;
             padding: 10px;
@@ -53,16 +53,51 @@
             font-weight: bold;
             color: #222222;
             font-family: 'Arial', sans-serif;
-
         }
-        
+
+        /* --- Task List styles (new) --- */
+        #task-list {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #7ba888;
+        }
+
+        #add-task {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #add-task:hover {
+            background-color: #1e7e34;
+        }
+
+        #user-tasks {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        #user-tasks li {
+            background-color: #ffffff;
+            margin-bottom: 6px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            list-style: disc;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="mt-4 text-center">Interactive Dashboard</h1>
-        
+
+        <!-- ===================== ROW 1: Eight Ball + Weekly Tasks ===================== -->
         <div class="row">
+
+            <!-- Column 1: Magic Eight Ball -->
             <div class="col" id="magic-eight-ball">
                 <script src="js/magic-eight-ball.js" defer></script>
                 <link rel="stylesheet" href="css/magic-eight-ball.css">
@@ -78,70 +113,86 @@
                 </form>
                 <br>
             </div>
-            
-            <div class="container">
+
+            <!-- Column 2: Weekly Tasks (Goal Calculator + Task List) -->
             <div class="col" id="weekly-tasks">
                 <h3 class="text-center">Weekly Goal Calculator</h3>
-                
-                <!-- HTML Form -->
+
+                <!-- Goal Calculator Form -->
                 <form id="goal-form">
                     <div class="form-group">
                         <label for="user-name">Name:</label>
                         <input type="text" id="user-name" placeholder="Enter your name" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="daily-goal">Daily Task Goal:</label>
                         <input type="number" id="daily-goal" placeholder="Enter daily tasks" min="0" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="bonus-tasks">Weekly Bonus Tasks:</label>
                         <input type="number" id="bonus-tasks" placeholder="Enter bonus tasks" min="0" required>
                     </div>
-                    
+
                     <button type="submit" id="goal-btn">Calculate Goals</button>
 
-                    <button type="button" id="reset-btn" style="margin-top:15px; margin-left:10px; background-color:#6c757d; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">Reset Form</button>
+                    <button type="button" id="reset-btn"
+                        style="margin-top:15px; margin-left:10px; background-color:#6c757d; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">
+                        Reset Form
+                    </button>
                 </form>
-                
-                <!-- Output Area -->
+
+                <!-- Goal Output -->
                 <p id="goal-message"></p>
-                
-                <!-- External JavaScript -->
+
+                <!-- ===== NEW: Task List (Module 7) ===== -->
+                <div id="task-list">
+                    <h3>Weekly Task List</h3>
+                    <p>Enter a task below to manage your goals.</p>
+                    <form>
+                        <label for="task-name">Enter task:</label>
+                        <input type="text" id="task-name" name="task-name">
+                    </form>
+                    <button id="add-task">Add Task</button>
+                </div>
+                <!-- ==================================== -->
+
+                <!-- External JavaScript for goal calculator + task list -->
                 <script src="js/task-manager.js"></script>
             </div>
-        </div>
-    </div>
-    
 
-    <div class="col" id="metric-converter">
-        <h2>Imperial / Metric Converter</h2>
-        <form id="converter-form">
-          <label for="input-value">Value:</label>
-          <input type="number" id="input-value" step="any" required>
-      
-          <label for="conversion-type">Conversion:</label>
-          <select id="conversion-type">
-            <option value="in-cm">Inches → Centimeters</option>
-            <option value="ft-m">Feet → Meters</option>
-            <option value="yd-m">Yards → Meters</option>
-            <option value="mi-km">Miles → Kilometers</option>
-            <option value="cm-in">Centimeters → Inches</option>
-            <option value="m-ft">Meters → Feet</option>
-            <option value="km-mi">Kilometers → Miles</option>
-          </select>
-      
-          <button type="submit" id="convert-btn">Convert</button>
-        </form>
-      
-        <p id="output"></p>
-      
-        <script src="js/metric-converter.js" defer></script>
-        <link rel="stylesheet" href="css/style.css">
-      </div>
+        </div> 
 
+        <!-- ===================== ROW 2: Metric Converter ===================== -->
+        <div class="row">
+            <div class="col" id="metric-converter">
+                <h2>Imperial / Metric Converter</h2>
+                <form id="converter-form">
+                    <label for="input-value">Value:</label>
+                    <input type="number" id="input-value" step="any" required>
 
+                    <label for="conversion-type">Conversion:</label>
+                    <select id="conversion-type">
+                        <option value="in-cm">Inches → Centimeters</option>
+                        <option value="ft-m">Feet → Meters</option>
+                        <option value="yd-m">Yards → Meters</option>
+                        <option value="mi-km">Miles → Kilometers</option>
+                        <option value="cm-in">Centimeters → Inches</option>
+                        <option value="m-ft">Meters → Feet</option>
+                        <option value="km-mi">Kilometers → Miles</option>
+                    </select>
 
+                    <button type="submit" id="convert-btn">Convert</button>
+                </form>
+
+                <p id="output"></p>
+
+                <script src="js/metric-converter.js" defer></script>
+                <link rel="stylesheet" href="css/style.css">
+            </div>
+        </div> 
+
+    </div> 
 </body>
 </html>
